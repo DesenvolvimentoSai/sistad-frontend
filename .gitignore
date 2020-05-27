@@ -44,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+angular.json
+src/app/pages/dash-board/dash-board.component.html
+

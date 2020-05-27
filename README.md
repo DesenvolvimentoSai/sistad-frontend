@@ -27,3 +27,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Correção erro sh: 1: node: Permission denied
+
+	Got the same error sh: 1: node: Permission denied
+	So this worked for me
+	npm config set user 0
+	npm config set unsafe-perm true
+
+##ERRO bash: ng: comando não encontrado
+	npm install -g @angular/cli
