@@ -1,35 +1,18 @@
 <div class="login-box">
-  <div class="login-logo">
-    <a href="#">SISTAD</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Login único</p>
-
-      <!-- Campo CPF -->
-      <div class="form-group has-feedback">
-        <input class="form-control" placeholder="CPF (Somente Números)" type="cpf">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      <!-- Fim do campo CPF --> 
-       
-      <div class="row">
-        <div class="col-xs-8">
-          <div>
-            <label>
-            </label>
+  <div class="container login-container">
+    <div class="col-sm-6 login-form">
+      <h3>
+        <img src="assets/img_sistad/logo.png" width="75" height="80"/>&nbsp;
+        Bem vindo ao SISTAD
+      </h3>
+      <form>
+          <div class="form-group">
+            <input #cpf id="cpf" maxlength="14" type="text" class="form-control" mask="000.000.000-00" placeholder="CPF *" required />
           </div>
-        </div>
-
-        
-
-      <!-- Botão Proxima -->
-          <div class="col-xs-4">
-            <a href= "login2.component.html">Próxima</a>
-            <button [routerLink]="'/login2'" class="btn btn-primary btn-block btn-flat">Próxima</button>
+          <div class="form-group">
+            <input type="submit" value="Próxima"  (click)="validarCPFSaram();" class="btn btn-primary btn-block btn-flat btnSubmit" />
           </div>
-      <!--  Fim do botão Proxima -->
-
+      </form>
+    </div>
   </div>
-  <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->

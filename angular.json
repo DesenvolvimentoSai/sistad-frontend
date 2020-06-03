@@ -53,7 +53,6 @@
               "src/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
               "src/assets/bower_components/fastclick/lib/fastclick.js",
               "src/assets/dist/js/adminlte.min.js",
-              "src/assets/dist/js/pages/dashboard.js",
               "src/assets/dist/js/demo.js",
               "src/assets/plugins/iCheck/icheck.min.js"
             ]
@@ -93,8 +92,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "sistad-frontend:build",
-            "port": 3000,
-            "host":"10.228.74.121"
+            "port": 3000
           },
           "configurations": {
             "production": {

@@ -7,12 +7,16 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {Login2Component} from './login/login2/login2.component';
 
+import { NgxMaskModule } from 'ngx-mask-2';
+// import { NgxMaskModule } from 'ngx-mask';
+
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent, RegisterComponent, Login2Component],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    NgxMaskModule.forRoot()
   ]
 })
 export class AuthModule {
