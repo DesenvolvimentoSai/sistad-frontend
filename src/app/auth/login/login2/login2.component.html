@@ -1,49 +1,40 @@
-<div class="login-box">
-    <div class="login-logo">
-      <a href="#">SISTAD</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-      <p class="login-box-msg">Login único</p>
-  
-      <!-- senha -->
-        <div class="form-group has-feedback">
-          <input class="form-control" placeholder="Código de Acesso" type="password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-      <!-- senha -->
-  
-        <div class="form-group has-feedback">
-          <label for="sel1">Módulo:</label>
-          <select class="form-control" id="sel1">
-            <option></option>
-            <option>Pessoal</option>
-            <option>Avaliação e Mérito</option>
-            <option>SECPROM</option>
-          </select>
-        </div> 
-  
-        
-        <div class="row">
-          <div class="col-xs-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> Lembrar Acesso
-              </label>
+  <div class="login-box">
+    <div class="container login-container">
+      <div class="col-sm-6 login-form">
+        <h3>
+          <img src="assets/img_sistad/logo.png" width="75" height="80"/>&nbsp;
+          Bem vindo ao SISTAD
+        </h3>
+        <form>
+            <div class="form-group">
+              <input  id="cpf" maxlength="14" type="text" class="form-control"  placeholder="CPF *" required />
             </div>
-          </div>
-  
-          <!-- Botão Entrar -->
-          <div class="col-xs-4">
-            <button [routerLink]="'/members'" class="btn btn-primary btn-block btn-flat">Entrar</button>
-          </div>
-          <!-- Botão Entrar -->
-        </div>
-  
-      <a href="https://apl1.sti.fab.mil.br/password/#/forgot">Esqueci o Código de Acesso</a>
-  
+            <div class="form-group has-feedback">
+              <input class="form-control" placeholder="Código de Acesso" type="password">
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <label for="sel1">Módulo:</label>
+              <select class="form-control" id="sel1">
+                <option></option>
+                <option>Pessoal</option>
+                <option>Avaliação e Mérito</option>
+                <option>SECPROM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <!-- <input type="submit" value="Próxima" class="btn btn-primary btn-block btn-flat btnSubmit" /> -->
+              <button [routerLink]="'/members'" class="btn btn-primary btn-block btn-flat">Entrar</button>
+              <a href="https://apl1.sti.fab.mil.br/password/#/forgot">Esqueci minha senha.</a>
+            </div>
+            <div class="col-xs-12">
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> Lembrar Acesso
+                </label>
+              </div>
+            </div>
+        </form>
+      </div>
     </div>
-    <!-- /.login-box-body -->
   </div>
-  <!-- /.login-box -->
-  

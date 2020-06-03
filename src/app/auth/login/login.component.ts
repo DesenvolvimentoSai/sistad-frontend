@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit, ViewChild, ElementRef} from '@angular/core';
-import { NgxMaskModule } from 'ngx-mask-2';
+import { SigpesService } from '../../services/sigpes.service';
+import { Router } from '@angular/router';
 
 declare var $;
 
@@ -7,7 +8,7 @@ declare var $;
   selector: 'sistad-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ NgxMaskModule ],
+  providers: [ SigpesService ],
 
 })
 
@@ -17,8 +18,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   @ViewChild('cpf', {read: ElementRef}) cpf: ElementRef;
   // public mask: string;
 
-  constructor() {}
-  telMask= '(00) 0000-0000';
+  constructor(
+    private sigpesService: SigpesService,
+    public router: Router
+  ) {}
+
   ngOnInit() {
     $('body').addClass('hold-transition login-page');
     $(() => {
@@ -35,10 +39,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   validarCPFSaram(){
-    // let valor = document.getElementById('cpf').value;
     // routerLink]="'/login2'"
-    // const value = this.cpf.nativeElement.value;
+    const valor = this.cpf.nativeElement.value;
+    if (valor){
+      console.log(valor);
+      // this.sigpesService.getCPFSaram(valor);
+      this.router.navigate(['/login2']);
 
+    }
     // this.tel.nativeElement.valueChanges.map(valor => valor.length).subscribe(length=>{
     //   if(length > 10){
     //      this.telMask = '(00) 0 0000-0000';
