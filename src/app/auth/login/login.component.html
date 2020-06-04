@@ -1,13 +1,16 @@
 <div class="login-box">
   <div class="container login-container">
     <div class="col-sm-6 login-form">
-      <h3>
-        <img src="assets/img_sistad/logo.png" width="75" height="80"/>&nbsp;
+      <h2>
+        <img src="assets/img_sistad/logo.png" width="85" height="90"/>&nbsp;
         Bem vindo ao SISTAD
-      </h3>
+      </h2>
       <form>
           <div class="form-group">
-            <input #cpf id="cpf" maxlength="14" type="text" class="form-control" mask="000.000.000-00" placeholder="CPF *" required />
+            <input #cpf id="cpf" maxlength="14" type="text" class="form-control inputCPF"
+              mask="000.000.000-00"
+              placeholder="CPF 000.000.000-00"
+              required oninvalid="this.setCustomValidity('O campo CPF é obrigatório!')" />
           </div>
           <div class="form-group">
             <input type="submit" value="Próxima"  (click)="validarCPFSaram();" class="btn btn-primary btn-block btn-flat btnSubmit" />

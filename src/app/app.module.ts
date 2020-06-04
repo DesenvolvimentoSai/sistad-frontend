@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PipeModule } from './shared/filters/pipe.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { PipeModule } from './shared/filters/pipe.module';
   ],
   providers: [  ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     PipeModule,

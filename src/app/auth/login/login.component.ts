@@ -40,13 +40,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   validarCPFSaram(){
     // routerLink]="'/login2'"
-    const valor = this.cpf.nativeElement.value;
-    if (valor){
-      console.log(valor);
-      // this.sigpesService.getCPFSaram(valor);
-      this.router.navigate(['/login2']);
+    const valor = this.cpf.nativeElement.value.replace(/[^\d]+/g, '');
+    const x = this.sigpesService.getCPFSaram(valor);
+    // console.log(x);
+    this.router.navigate(['/login2']);
 
-    }
+    // }
     // this.tel.nativeElement.valueChanges.map(valor => valor.length).subscribe(length=>{
     //   if(length > 10){
     //      this.telMask = '(00) 0 0000-0000';

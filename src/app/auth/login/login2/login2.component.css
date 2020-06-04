@@ -10,8 +10,9 @@
   padding: 2%;
   background: #0062cc;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
 }
-.login-form h3{
+.login-form h2{
   text-align: center;
   color: #fff;
 }
@@ -25,6 +26,7 @@
   padding: 1.5%;
   border: none;
   cursor: pointer;
+  font-size: 20px;
 }
 .login-form .btnSubmit{
   font-weight: 400;
@@ -35,4 +37,10 @@
   color: #fff;
   font-weight: 400;
   text-decoration: none;
+}
+.inputCPF {
+  font-size: 18px;
+}
+.checkbox{
+
 }
