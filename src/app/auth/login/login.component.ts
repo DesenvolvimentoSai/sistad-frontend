@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewChild, ElementRef} from '@angular/core';
-import { SigpesService } from '../../services/sigpes.service';
+import { SigpesldapService } from '../../services/sigpesldap.service';
 import { Router } from '@angular/router';
 
 declare var $;
@@ -8,7 +8,7 @@ declare var $;
   selector: 'sistad-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ SigpesService ],
+  providers: [ SigpesldapService ],
 
 })
 
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   // public mask: string;
 
   constructor(
-    private sigpesService: SigpesService,
+    private sigpesldapService: SigpesldapService,
     public router: Router
   ) {}
 
@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   validarCPFSaram(){
     // routerLink]="'/login2'"
     const valor = this.cpf.nativeElement.value.replace(/[^\d]+/g, '');
-    const x = this.sigpesService.getCPFSaram(valor);
-    // console.log(x);
+    this.sigpesldapService.getCPFSaram(valor).subscribe(resposta => {
+      console.log(resposta['text']);
+    });
     this.router.navigate(['/login2']);
 
     // }

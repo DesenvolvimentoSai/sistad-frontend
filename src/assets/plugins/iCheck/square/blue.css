@@ -9,8 +9,9 @@
     padding: 0;
     width: 22px;
     height: 22px;
-    background: url(blue.png) no-repeat;
-    border: none;
+    /* background: url(blue.png) no-repeat; */
+    background-color: #FFF;
+    border: 3px solid blue;
     cursor: pointer;
 }
 
