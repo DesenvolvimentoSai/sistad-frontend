@@ -10,7 +10,9 @@
             <label for="cpf">CPF:</label>
             <input id="cpf" maxlength="14" type="text" class="form-control inputCPF"
               placeholder="CPF 000.000.000-00"
-              required oninvalid="this.setCustomValidity('O campo CPF é obrigatório!')" />
+              required oninvalid="this.setCustomValidity('O campo CPF é obrigatório!')"
+              value="{{ cpf }}"
+              readonly="true" />
           </div>
           <div class="form-group">
             <label for="senha">Senha:</label>

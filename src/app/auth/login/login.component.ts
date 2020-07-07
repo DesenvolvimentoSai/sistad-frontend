@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { SigpesldapService } from '../../services/sigpesldap.service';
 import { Router } from '@angular/router';
+import { IfStmt } from '@angular/compiler';
 
 declare var $;
 
@@ -12,11 +13,9 @@ declare var $;
 
 })
 
-
 export class LoginComponent implements OnInit, OnDestroy {
 
   @ViewChild('cpf', {read: ElementRef}) cpf: ElementRef;
-  // public mask: string;
 
   constructor(
     private sigpesldapService: SigpesldapService,
@@ -39,31 +38,16 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   validarCPFSaram(){
-    // routerLink]="'/login2'"
+    const cpf = this.cpf.nativeElement.value;
     const valor = this.cpf.nativeElement.value.replace(/[^\d]+/g, '');
-    this.sigpesldapService.getCPFSaram(valor).subscribe(resposta => {
-      console.log(resposta['text']);
+    // tslint:disable-next-line: no-unused-expression
+    this.sigpesldapService.getCPFSaram(valor).subscribe(data => {
+      (data.status === 200) ?
+      this.router.navigate([`/login2/${cpf}`])
+        :
+        this.router.navigate([`/login/`]);
     });
-    this.router.navigate(['/login2']);
 
-    // }
-    // this.tel.nativeElement.valueChanges.map(valor => valor.length).subscribe(length=>{
-    //   if(length > 10){
-    //      this.telMask = '(00) 0 0000-0000';
-    //    }else{
-    //      this.telMask = '(00) 0000-0000';
-    //   }
-    // });
+    this.router.navigate([`/login2/${cpf}`]);
   }
-
-  // cpfcnpjmask() {
-  //   const value = this.cpf.nativeElement.value;
-  //   if(value.length <= 14) {
-  //     this.mask = '00.000.000/0000-00';
-  //   }
-  //   else {
-  //     this.mask = '00.000.0000-00';
-  //   }
-  // }
-
 }

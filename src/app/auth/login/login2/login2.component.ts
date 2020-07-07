@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare var $;
 
@@ -9,10 +9,14 @@ declare var $;
   styleUrls: ['./login2.component.css']
 })
 export class Login2Component implements OnInit {
+  public cpf: any;
 
   constructor(
-    public router: Router
-  ) {}
+    public router: Router,
+    public activatedRoute: ActivatedRoute
+  ) {
+    this.cpf = this.activatedRoute.snapshot.params.cpf;
+  }
 
   ngOnInit() {
     $('body').addClass('hold-transition login-page');
@@ -25,6 +29,7 @@ export class Login2Component implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnDestroy(): void {
     $('body').removeClass('hold-transition login-page');
   }
