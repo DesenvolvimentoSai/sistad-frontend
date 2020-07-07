@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $;
 
@@ -9,7 +10,10 @@ declare var $;
 })
 export class Login2Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) {}
+
   ngOnInit() {
     $('body').addClass('hold-transition login-page');
     $(() => {
@@ -23,6 +27,10 @@ export class Login2Component implements OnInit {
 
   ngOnDestroy(): void {
     $('body').removeClass('hold-transition login-page');
+  }
+
+  validarSenha(){
+    this.router.navigate(['/members']);
   }
 
 }

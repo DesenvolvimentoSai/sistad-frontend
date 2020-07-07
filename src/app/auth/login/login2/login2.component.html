@@ -7,39 +7,35 @@
         </h3>
         <form>
           <div class="form-group">
+            <label for="cpf">CPF:</label>
             <input id="cpf" maxlength="14" type="text" class="form-control inputCPF"
-
               placeholder="CPF 000.000.000-00"
               required oninvalid="this.setCustomValidity('O campo CPF é obrigatório!')" />
           </div>
-            <div class="form-group has-feedback">
-              <input class="form-control" placeholder="Código de Acesso" type="password">
-              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input id="senha" class="form-control "
+              placeholder="********"
+              required oninvalid="this.setCustomValidity('O campo SENHA é obrigatório!')" />
+          </div>
+          <div class="form-group">
+            <label for="modulo">Módulo:</label>
+            <select class="form-control">
+              <option value="1" selected>Pessoal</option>
+              <option value="2">Avaliação de Mérito</option>
+              <option value="3">SECPROM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Entrar"  (click)="validarSenha();" class="btn btn-primary btn-block btn-flat btnSubmit" />
+            <br/>
+            <a href="https://apl1.sti.fab.mil.br/password/#/forgot" style="color:#FFF;">Esqueci minha senha.</a>
+            <div class="checkbox icheck">
+              <label>
+                <input type="checkbox" style="background-color: #FFF;"> Lembrar Acesso
+              </label>
             </div>
-            <div class="form-group has-feedback">
-              <label for="modulo" style="font-size: 18px;">Módulo:</label>
-              <select id="modulo" class="form-control">
-                <option></option>
-                <option>Pessoal</option>
-                <option>Avaliação e Mérito</option>
-                <option>SECPROM</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <!--
-                <div class="form-group">
-                  <input type="submit" value="Próxima"  (click)="validarCPFSaram();" class="btn btn-primary btn-block btn-flat btnSubmit" />
-                </div>
-              -->
-              <button [routerLink]="'/members'" class="btn btn-primary btn-block btn-flat">Entrar</button>
-              <br/>
-              <a href="https://apl1.sti.fab.mil.br/password/#/forgot" style="color:#FFF;">Esqueci minha senha.</a>
-                <div class="checkbox icheck">
-                  <label>
-                    <input type="checkbox" style="background-color: #FFF;"> Lembrar Acesso
-                  </label>
-                </div>
-            </div>
+          </div>
         </form>
       </div>
     </div>
