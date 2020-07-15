@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit, ViewChild, ElementRef} from '@angular/core';
-import { SigpesldapService } from '../../services/sigpesldap.service';
 import { Router } from '@angular/router';
-import { IfStmt } from '@angular/compiler';
+import { SigpesldapService } from '../../services/sigpesldap.service';
+import { CpfValidator } from '../../shared/validators/CpfValidator';
 
 declare var $;
 
@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         increaseArea: '20%' /* optional */
       });
     });
+    const rota  = this.router.url.split('/');
+    if (rota[2] && rota[2] === '1') { alert('CPF inválido!'); }
   }
 
   ngOnDestroy(): void {
@@ -38,16 +40,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   validarCPFSaram(){
-    const cpf = this.cpf.nativeElement.value;
-    const valor = this.cpf.nativeElement.value.replace(/[^\d]+/g, '');
-    // tslint:disable-next-line: no-unused-expression
-    this.sigpesldapService.getCPFSaram(valor).subscribe(data => {
-      (data.status === 200) ?
-      this.router.navigate([`/login2/${cpf}`])
-        :
-        this.router.navigate([`/login/`]);
-    });
-
-    this.router.navigate([`/login2/${cpf}`]);
+    const validarCPF = CpfValidator.validate(this.cpf.nativeElement.value);
+    if (validarCPF.result){
+      const cpf = this.cpf.nativeElement.value;
+      this.router.navigate([`/login2/${cpf}`]);
+    }else { alert('CPF inválido!'); }
   }
 }
