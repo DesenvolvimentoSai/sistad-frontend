@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
     const rota  = this.router.url.split('/');
     if (rota[2] && rota[2] === '1') { alert('CPF inválido!'); }
+    if (rota[2] && rota[2] === '2') { alert('Senha incorreta!'); }
   }
 
   ngOnDestroy(): void {
@@ -40,10 +41,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   validarCPFSaram(){
-    const validarCPF = CpfValidator.validate(this.cpf.nativeElement.value);
-    if (validarCPF.result){
-      const cpf = this.cpf.nativeElement.value;
-      this.router.navigate([`/login2/${cpf}`]);
+    const cpf = this.cpf.nativeElement.value;
+    const validarCPF = CpfValidator.validate(cpf);
+    console.log(validarCPF);
+    if (validarCPF){
+      this.router.navigate([`/login2/${cpf}`], { skipLocationChange: true });
     }else { alert('CPF inválido!'); }
   }
 }

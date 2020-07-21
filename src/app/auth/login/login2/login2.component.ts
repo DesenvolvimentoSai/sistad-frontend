@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SigpesldapService } from '../../../services/sigpesldap.service';
 
@@ -8,9 +8,13 @@ declare var $;
   selector: 'sistad-login2',
   templateUrl: './login2.component.html',
   styleUrls: ['./login2.component.css'],
-  providers:[ SigpesldapService ]
+  providers: [ SigpesldapService ]
 })
 export class Login2Component implements OnInit {
+
+  @ViewChild('senha', {read: ElementRef}) senha: ElementRef;
+  @ViewChild('modulo', {read: ElementRef}) modulo: ElementRef;
+
   public cpf: any;
 
   constructor(
@@ -45,6 +49,7 @@ export class Login2Component implements OnInit {
       }
     },
     error => {
+      // tslint:disable-next-line: no-debugger
       debugger;
       console.log(error.message);
     }
@@ -57,7 +62,23 @@ export class Login2Component implements OnInit {
   }
 
   validarSenha(){
-    this.router.navigate(['/members']);
+    const modulo = this.modulo.nativeElement.value;
+    const senha = this.senha.nativeElement.value;
+    this.sigpesldapService.validarLogin(this.cpf, modulo, senha).subscribe(data => {
+      console.log(data);
+      console.log(data.status);
+      if (data.status !== 200){
+        this.router.navigate([`/login/${2}`]);
+      } else {
+        this.router.navigate(['/members']);
+      }
+    },
+    error => {
+      // tslint:disable-next-line: no-debugger
+      debugger;
+      console.log(error.message);
+    }
+    );
   }
 
 }

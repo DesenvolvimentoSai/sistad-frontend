@@ -16,16 +16,15 @@
           </div>
           <div class="form-group">
             <label for="senha">Senha:</label>
-            <input id="senha" class="form-control "
+            <input #senha id="senha" class="form-control "
               placeholder="********"
               required oninvalid="this.setCustomValidity('O campo SENHA é obrigatório!')" />
           </div>
           <div class="form-group">
             <label for="modulo">Módulo:</label>
-            <select class="form-control">
-              <option value="1" selected>Pessoal</option>
-              <option value="2">Avaliação de Mérito</option>
-              <option value="3">SECPROM</option>
+            <select #modulo class="form-control" >
+              <option value="1" selected>SECPROM</option>
+              <option value="2">AVALIAÇÃO DE MÉRITO</option>
             </select>
           </div>
           <div class="form-group">

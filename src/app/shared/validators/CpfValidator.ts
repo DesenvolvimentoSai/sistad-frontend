@@ -2,12 +2,10 @@ import { AbstractControl } from '@angular/forms';
 
 export class CpfValidator {
 
-  static validate(c: AbstractControl): { [p: string]: any } {
-    const cpf = c.value ? c.value.replace(/[^\d]+/g, '') : '';
+  static validate(valor): boolean {
+    const cpf = valor ? valor.replace(/[^\d]+/g, '') : '';
 
-    if (cpf === '') {
-      return { result: false };
-    }
+    if (cpf === '') { return false ; }
 
     // Elimina CPFs invalidos conhecidos
     if (cpf.length !== 11 ||
@@ -21,8 +19,10 @@ export class CpfValidator {
       cpf === '77777777777' ||
       cpf === '88888888888' ||
       cpf === '99999999999') {
-      return { result: false };
+
+        return false ;
     }
+
     // Valida 1o digito
     let add = 0;
     for (let i = 0; i < 9; i++) {
@@ -35,7 +35,7 @@ export class CpfValidator {
     }
     // tslint:disable-next-line: radix
     if (rev !== parseInt(cpf.charAt(9))) {
-      return { result: false };
+      return false ;
     }
 
     // Valida 2o digito
@@ -50,8 +50,8 @@ export class CpfValidator {
     }
     // tslint:disable-next-line: radix
     if (rev !== parseInt(cpf.charAt(10))) {
-      return { result: false };
+      return false ;
     }
-    return null;
+    return true;
   }
 }
