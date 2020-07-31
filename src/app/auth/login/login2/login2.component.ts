@@ -64,13 +64,14 @@ export class Login2Component implements OnInit {
   validarSenha(){
     const modulo = this.modulo.nativeElement.value;
     const senha = this.senha.nativeElement.value;
-    this.sigpesldapService.validarLogin(this.cpf, modulo, senha).subscribe(data => {
+    const valorCpf = this.cpf.replace(/[^\d]+/g, '');
+    this.sigpesldapService.validarLogin(valorCpf, senha).subscribe(data => {
       console.log(data);
       console.log(data.status);
       if (data.status !== 200){
         this.router.navigate([`/login/${2}`]);
       } else {
-        this.router.navigate(['/members']);
+        this.router.navigate([`/members/${data}`]);
       }
     },
     error => {
