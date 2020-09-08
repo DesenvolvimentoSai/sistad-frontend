@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const cpf = this.cpf.nativeElement.value;
     const validarCPF = CpfValidator.validate(cpf);
     if (validarCPF){
-      this.router.navigate([`/login2/${cpf}`], { skipLocationChange: true });
+      this.router.navigate([`auth/login2/${cpf}`], { skipLocationChange: false});
     }else { alert('CPF inválido!'); }
   }
 }

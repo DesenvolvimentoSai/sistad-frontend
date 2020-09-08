@@ -35,5 +35,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	npm config set user 0
 	npm config set unsafe-perm true
 
-##ERRO bash: ng: comando não encontrado
+## ERRO bash: ng: comando não encontrado
 	npm install -g @angular/cli
+
+## ERRO System limit for number of file (Error from chokidar)
+Erro causado pela baixo limit na abertura dos arquivos iniciais do projeto.
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p

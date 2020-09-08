@@ -22,4 +22,5 @@ import { NgxMaskModule } from 'ngx-mask-2';
   ]
 })
 export class AuthModule {
+
 }

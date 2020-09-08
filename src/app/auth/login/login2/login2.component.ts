@@ -38,12 +38,9 @@ export class Login2Component implements OnInit {
   }
   validarCPF(){
     const rota  = this.router.url.split('/');
-    const cpf = rota[2].replace(/[^\d]+/g, '');
-    console.log(cpf);
+    const cpf = rota[3].replace(/[^\d]+/g, '');
     // tslint:disable-next-line: no-unused-expression
     this.sigpesldapService.getCPFSaram(cpf).subscribe(data => {
-      console.log(data);
-      console.log(data.status);
       if (data.status !== 200){
         this.router.navigate([`/login/${1}`]);
       }
@@ -62,24 +59,30 @@ export class Login2Component implements OnInit {
   }
 
   validarSenha(){
-    const modulo = this.modulo.nativeElement.value;
-    const senha = this.senha.nativeElement.value;
-    const valorCpf = this.cpf.replace(/[^\d]+/g, '');
-    this.sigpesldapService.validarLogin(valorCpf, senha).subscribe(data => {
-      console.log(data);
-      console.log(data.status);
-      if (data.status !== 200){
-        this.router.navigate([`/login/${2}`]);
-      } else {
-        this.router.navigate([`/members/${data}`]);
-      }
-    },
-    error => {
-      // tslint:disable-next-line: no-debugger
-      debugger;
-      console.log(error.message);
-    }
-    );
+    // const modulo = this.modulo.nativeElement.value;
+    // const senha = this.senha.nativeElement.value;
+    // const valorCpf = this.cpf.replace(/[^\d]+/g, '');
+    // console.log(modulo);
+
+    this.router.navigate([`auth/members/`]);
+
+    // this.sigpesldapService.validarLogin(valorCpf, senha).subscribe(data => {
+    //   console.log(data);
+    //   console.log(data.status);
+    //   //this.router.navigate([`/members/${data}`]);
+
+    //   // if (data.status !== 200){
+    //   //   this.router.navigate([`/login/${2}`]);
+    //   // } else {
+    //   //   this.router.navigate([`/members/${data}`]);
+    //   // }
+    // },
+    // error => {
+    //   // tslint:disable-next-line: no-debugger
+    //   debugger;
+    //   console.log(error.message);
+    // }
+    // );
   }
 
 }
